@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now - Bhavy Notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Add custom transitions */
+        .transition-transform {
+            transition: transform 0.3s ease-in-out;
+        }
+        .transition-transform:hover {
+            transform: scale(1.05);
+        }
+
+        .transition-shadow {
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .transition-shadow:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .focus:ring-yellow-400 {
+            box-shadow: 0 0 0 4px rgba(252, 211, 77, 0.5);
+        }
+
+        /* Button Hover Animation */
+        .btn-hover-scale {
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .btn-hover-scale:hover {
+            transform: scale(1.05);
+            background-color: #f9c74f;
+        }
+
+        /* Card Hover Animation */
+        .card-hover-tilt {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-tilt:hover {
+            transform: rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Fade-In Effect */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-yellow-400 transition-transform hover:scale-105">Bhavy Notes</a>
+            <div>
+                <a href="index.html" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-300">Home</a>
+                <a href="about.html" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-300">About Us</a>
+                <a href="paid-content.html" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-300">Premium Content</a>
+                <a href="contact.html" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Buy Now Section -->
+    <section class="container mx-auto my-10 p-6 bg-white shadow-md rounded-lg transition-shadow hover:shadow-lg fade-in" id="buy-now-section">
+        <h1 class="text-4xl font-bold text-center mb-6 text-gray-800">Buy Now</h1>
+        <p class="text-lg leading-relaxed text-center mb-10 text-gray-600">
+            You're just a few steps away from accessing the best study materials with <span class="font-semibold text-yellow-400">Bhavy Notes Premium</span>. Complete your purchase below.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Order Summary -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-lg card-hover-tilt">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Order Summary</h2>
+                <div class="mb-4">
+                    <p class="font-semibold text-gray-700">Exclusive Chemistry Notes</p>
+                    <p class="text-gray-600">Detailed notes for all chapters in Class 12 Chemistry.</p>
+                </div>
+                <div class="mb-4">
+                    <p class="font-semibold text-gray-700">Price: ₹499</p>
+                </div>
+                <hr class="mb-4">
+                <p class="text-lg font-bold text-gray-800">Total: ₹499</p>
+            </div>
+
+            <!-- Payment Information -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-lg card-hover-tilt">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Payment Information</h2>
+                <form action="#" method="POST">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-semibold mb-2">Name on Card</label>
+                        <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-300" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="card-number" class="block text-gray-700 font-semibold mb-2">Card Number</label>
+                        <input type="text" id="card-number" name="card-number" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-300" required>
+                    </div>
+                    <div class="flex mb-4">
+                        <div class="mr-4 w-1/2">
+                            <label for="expiry" class="block text-gray-700 font-semibold mb-2">Expiry Date</label>
+                            <input type="text" id="expiry" name="expiry" placeholder="MM/YY" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-300" required>
+                        </div>
+                        <div class="w-1/2">
+                            <label for="cvc" class="block text-gray-700 font-semibold mb-2">CVC</label>
+                            <input type="text" id="cvc" name="cvc" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-300" required>
+                        </div>
+                    </div>
+                    <a href="completepurchase.html" class="w-full bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-lg btn-hover-scale">Complete Purchase</a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 mt-10">
+        <div class="container mx-auto text-center">
+            &copy; 2024 Bhavy Notes. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in effect for sections when they enter the viewport
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('.fade-in');
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Complete - Bhavy Notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-yellow-400">Bhavy Notes</a>
+            <div>
+                <a href="index.html" class="px-4 py-2 hover:bg-gray-700 rounded">Home</a>
+                <a href="about.html" class="px-4 py-2 hover:bg-gray-700 rounded">About Us</a>
+                <a href="paid-content.html" class="px-4 py-2 hover:bg-gray-700 rounded">Premium Content</a>
+                <a href="contact.html" class="px-4 py-2 hover:bg-gray-700 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Complete Purchase Section -->
+    <section class="container mx-auto my-10 p-6 bg-white shadow-md rounded-lg text-center" id="purchaseSection">
+        <h1 class="text-4xl font-bold text-gray-800 mb-6">Thank You for Your Purchase!</h1>
+        <p class="text-lg leading-relaxed text-gray-600 mb-10">
+            Your purchase has been successfully completed. You can now access your premium content and start learning with <span class="font-semibold text-yellow-400">Bhavy Notes Premium</span>.
+        </p>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow-lg inline-block">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Order Details</h2>
+            <p class="mb-4">
+                <span class="font-semibold text-gray-700">Order Number:</span> #123456
+            </p>
+            <p class="mb-4">
+                <span class="font-semibold text-gray-700">Product:</span> Exclusive Chemistry Notes
+            </p>
+            <p class="mb-4">
+                <span class="font-semibold text-gray-700">Price:</span> ₹499
+            </p>
+            <p class="mb-4">
+                <span class="font-semibold text-gray-700">Purchase Date:</span> August 22, 2024
+            </p>
+        </div>
+
+        <div class="mt-10">
+            <a href="premium-content.html" class="bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-yellow-300 transition duration-300">Access Your Content</a>
+        </div>
+    </section>
+
+    <!-- Payment Section (If user has not paid yet) -->
+    <section class="container mx-auto my-10 p-6 bg-white shadow-md rounded-lg text-center hidden" id="paymentSection">
+        <h1 class="text-4xl font-bold text-gray-800 mb-6">Complete Your Payment</h1>
+        <p class="text-lg leading-relaxed text-gray-600 mb-10">
+            Please complete the payment to access your premium content.
+        </p>
+        <button id="payButton" class="bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-yellow-300 transition duration-300">
+            Pay ₹499 Now
+        </button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 mt-10">
+        <div class="container mx-auto text-center">
+            &copy; 2024 Bhavy Notes. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mock function to check payment status
+        function hasUserPaid() {
+            // This should be replaced with actual server-side logic
+            // For example, checking a database or a session variable
+            return false; // change to true to simulate a user who has paid
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const purchaseSection = document.getElementById('purchaseSection');
+            const paymentSection = document.getElementById('paymentSection');
+            const payButton = document.getElementById('payButton');
+
+            if (!hasUserPaid()) {
+                purchaseSection.classList.add('hidden');
+                paymentSection.classList.remove('hidden');
+            }
+
+            payButton.addEventListener('click', function () {
+                var options = {
+                    "key": "YOUR_RAZORPAY_KEY", // Enter the Key ID generated from the Dashboard
+                    "amount": "49900", // Amount is in currency subunits. Default currency is INR. Hence, 49900 means 499 INR
+                    "currency": "INR",
+                    "name": "Bhavy Notes",
+                    "description": "Purchase Premium Content",
+                    "handler": function (response) {
+                        alert("Payment Successful!");
+                        // After payment, update the server or local storage with payment status
+                        // Redirect to the same page or dynamically update the content
+                        paymentSection.classList.add('hidden');
+                        purchaseSection.classList.remove('hidden');
+                    },
+                    "prefill": {
+                        "name": "Bhavy",
+                        "email": "bhavy@example.com",
+                        "contact": "9999999999"
+                    },
+                    "theme": {
+                        "color": "#F59E0B"
+                    }
+                };
+                var rzp1 = new Razorpay(options);
+                rzp1.open();
+            });
+        });
+    </script>
+</body>

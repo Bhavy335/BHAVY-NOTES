@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bhavy Notes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    /* Inline CSS */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .accordion-item {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .accordion-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: #ffc107;
+    }
+
+    /* Header and Main Title */
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px #333333;
+      margin-top: 20px;
+    }
+
+    body {
+      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Navbar Gradient */
+    .navbar {
+      background: linear-gradient(to right, #007bff, #6610f2);
+    }
+
+    /* Header Gradient */
+    header.bg-gradient-dark {
+      background: linear-gradient(to right, #333333, #111111);
+      color: white;
+      padding: 100px 0;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    header a {
+      background-color: #ff6f61;
+      border-color: #ff6f61;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    header a:hover {
+      background-color: #e05d57;
+    }
+
+    /* Alert Box */
+    .alert {
+      font-weight: bold;
+      color: #856404;
+      background-color: #fff3cd;
+      border: 1px solid #ffeeba;
+      border-radius: 4px;
+      padding: 10px;
+      margin: 10px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Accordion Button */
+    .accordion-button {
+      background-color: #e9ecef;
+      color: #495057;
+      font-weight: bold;
+    }
+
+    /* Card for Paid Content */
+    .card {
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      margin-top: 20px;
+    }
+
+    .card-body.bg-gradient-secondary {
+      background: linear-gradient(to right, #495057, #6c757d);
+    }
+
+    .card-title {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .btn-warning {
+      color: #333333;
+      background-color: #ffc107;
+      border-color: #ffc107;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-warning:hover {
+      background-color: #e0a800;
+    }
+
+    /* Footer Gradient */
+    footer.bg-gradient-primary {
+      background: linear-gradient(to right, #007bff, #6610f2);
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: #ffc107;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Bhavy Notes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="paidcontent.html">Paid Content</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="text-white text-center py-5 bg-gradient-dark">
+    <div class="container">
+      <h1>Welcome to Bhavy Notes</h1>
+      <p>Your ultimate resource for academic success</p>
+      <a href="home.html" class="btn btn-primary btn-lg">Explore Notes</a>
+    </div>
+  </header>
+
+  <div class="container my-5">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Notice:</strong> Practice regularly to excel in your exams. Best of luck!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Free Resources</h2>
+        <p>Access a wide range of digital and handwritten notes for free.</p>
+        <div class="accordion" id="accordionExample">
+          <!-- Accordion content goes here -->
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h2>Paid Content</h2>
+        <p>Unlock premium notes and exclusive study materials.</p>
+        <div class="card">
+          <div class="card-body bg-gradient-secondary">
+            <h5 class="card-title text-primary">Class 12 - Complete Package</h5>
+            <p class="card-text text-white">Get access to all notes, previous year papers, and expert tips for ₹499 only.</p>
+            <a href="buynow.html" class="btn btn-warning">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-gradient-primary text-white text-center py-4">
+    <div class="container">
+      <p>&copy; 2024 Bhavy Notes. All rights reserved.</p>
+      <p class="footer-links">Follow us on:
+        <a href="#" class="text-warning">Instagram</a> | 
+        <a href="#" class="text-warning">Facebook</a> | 
+        <a href="#" class="text-warning">Twitter</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
